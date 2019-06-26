@@ -1,1 +1,1 @@
-# voteSystem
+# 基于SSH框架的在线投票系统
