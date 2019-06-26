@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+            name="vote.pojo.Vote"
+            table="t_vote"
+            dynamic-update="true"
+            dynamic-insert="true"
+            >
+
+        <id name="voteID" column="voteID" >
+            <generator class="identity"/>
+        </id>
+        <property name="voteCreater"/>
+        <property name="mainTitle"/>
+        <property name="status"/>
+		<property name="date" type="java.util.Date">
+			
+		</property>
+		<list name="allContent" lazy="false" >
+			<key column="voteID"   />
+			<list-index column="list_order"/>
+			<one-to-many class="vote.pojo.VoteContent"/>
+		</list>
+    </class>
+
+</hibernate-mapping>

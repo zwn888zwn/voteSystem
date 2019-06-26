@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+            name="vote.pojo.VoteResult"
+            table="t_voteResult"
+            dynamic-update="true"
+            dynamic-insert="true">
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name="voteId" foreign-key="voteID" class="vote.pojo.Vote"></many-to-one>
+        <many-to-one name="userId" foreign-key="id" class="vote.pojo.User"></many-to-one>
+		<property name="voteName" />	
+        <property name="uuid" />
+        <property name="voteResult" />
+    </class>
+
+</hibernate-mapping>

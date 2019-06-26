@@ -1,0 +1,9 @@
+package test;
+
+public class OriginClazz {
+	
+	public void show(){
+		System.out.println("œ‘ æ—°œÓ");
+	}
+
+}

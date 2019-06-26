@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+            name="vote.pojo.VoteContent"
+            table="t_vote_content"
+            dynamic-update="true"
+            dynamic-insert="true">
+
+        <id name="contentId" column="contentId" >
+            <generator class="identity"/>
+        </id>
+        <property name="subTitle" />
+        <property name="contentType" column="contentType">
+        	<!-- <column name="contentType" not-null="true" /> -->
+        	<type name="org.hibernate.type.EnumType" >
+        	<param name="enumClass">vote.pojo.VoteType</param>
+     		<!-- <param name="type">12</param> -->
+     		<param name="useNamed">true</param>
+        	</type>
+        	
+        	
+        </property>
+        
+		<list name="contentText" table="t_content_text" lazy="false">
+			<key column="contentId" />
+			<list-index column="list_order"/>
+			<element type="string" column="list_content"/>
+		</list>
+    </class>
+
+</hibernate-mapping>
